@@ -2,12 +2,14 @@ function formatDate (timestamp) {
 let date = new Date(timestamp);
 let hours = date.getHours();
 if (hours < 10) {
-    hours= `0${hours}`;
+    hours= `0${hours}`
 } 
 let minutes = date.getUTCMinutes();
 if (minutes < 10) {
-    minutes= `0${minutes}`;
+    minutes= `0${minutes}`
 } 
+
+
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday"];
 let day =days[date.getDay()] ;
    
@@ -22,6 +24,7 @@ function displayTemperature (response) {
     let humidityElement = document.querySelector("#humidity");
     let speedElement = document.querySelector("#speed");
     let dateElement = document.querySelector("#date");
+    let iconElement = document.querySelector("#icon");
  
     temperatureElement.innerHTML= Math.round (response.data.main.temp);
     cityElement.innerHTML= response.data.name;
@@ -29,10 +32,11 @@ function displayTemperature (response) {
     humidityElement.innerHTML=response.data.main.humidity;
     speedElement.innerHTML=response.data.wind.speed;
     dateElement.innerHTML= formatDate(response.data.dt * 1000);
-
+    iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+     iconElement.setAttribute ("alt", response.data.weather[0].description);
 }
 
 let apiKey = "2da268162fce29233010fa7646fed33b";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kharkiv&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
+let city = "Kharkiv";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemperature);

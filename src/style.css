@@ -52,9 +52,10 @@ footer{
 .weather-temperature img{
     margin-top: 0px;
     margin-right: 5px;
-    padding: 5px;
-    width: 48px;
-    height: 48px;
+    padding-right: 0;
+
+    /*width: 48px;
+   // height: 48px;*/
 
 }
 
@@ -70,4 +71,13 @@ footer{
     position: relative;
     font-size:16px;
     top: -24px;
+}
+
+.temp{
+    padding-top: 18px;
+    padding-left: 0;
+}
+
+.temp strong{
+    padding-left: 0;
 }
