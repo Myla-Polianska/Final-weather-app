@@ -23,7 +23,8 @@ li{
     line-height: 19px;
     color: #878787;
     margin: 0;
-    padding: 0;
+    padding: 5px 0;
+    text-transform: capitalize;
 }
 
 footer{
