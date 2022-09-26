@@ -79,3 +79,16 @@ footer{
 .temp strong{
     padding-left: 0;
 }
+
+.units a {
+    text-decoration: none;
+}
+
+.weather-temperature .active{
+    color: #222122;
+    cursor: default;
+}
+
+.weather-temperature .active:hover {
+    text-decoration: none;
+}
